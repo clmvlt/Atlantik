@@ -30,7 +30,7 @@ namespace Atlantik.Formulaires
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.lbSecteurs = new System.Windows.Forms.ListBox();
+            this.lblSecteurs = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cbxLiaisons = new System.Windows.Forms.ComboBox();
@@ -51,14 +51,14 @@ namespace Atlantik.Formulaires
             this.label1.TabIndex = 0;
             this.label1.Text = "Secteurs :";
             // 
-            // lbSecteurs
+            // lblSecteurs
             // 
-            this.lbSecteurs.FormattingEnabled = true;
-            this.lbSecteurs.Location = new System.Drawing.Point(12, 25);
-            this.lbSecteurs.Name = "lbSecteurs";
-            this.lbSecteurs.Size = new System.Drawing.Size(175, 238);
-            this.lbSecteurs.TabIndex = 1;
-            this.lbSecteurs.SelectedIndexChanged += new System.EventHandler(this.lbSecteurs_SelectedIndexChanged);
+            this.lblSecteurs.FormattingEnabled = true;
+            this.lblSecteurs.Location = new System.Drawing.Point(12, 25);
+            this.lblSecteurs.Name = "lblSecteurs";
+            this.lblSecteurs.Size = new System.Drawing.Size(175, 238);
+            this.lblSecteurs.TabIndex = 1;
+            this.lblSecteurs.SelectedIndexChanged += new System.EventHandler(this.lblSecteurs_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -162,7 +162,7 @@ namespace Atlantik.Formulaires
             this.Controls.Add(this.cbxLiaisons);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.lbSecteurs);
+            this.Controls.Add(this.lblSecteurs);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormAjouterTraversee";
@@ -177,7 +177,7 @@ namespace Atlantik.Formulaires
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox lbSecteurs;
+        private System.Windows.Forms.ListBox lblSecteurs;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbxLiaisons;

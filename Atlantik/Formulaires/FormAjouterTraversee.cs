@@ -32,7 +32,7 @@ namespace Atlantik.Formulaires
 
                 while (dataSecteur.Read())
                 {
-                    lbSecteurs.Items.Add(new Secteur(int.Parse(dataSecteur["nosecteur"].ToString()), dataSecteur["nom"].ToString()));
+                    lblSecteurs.Items.Add(new Secteur(int.Parse(dataSecteur["nosecteur"].ToString()), dataSecteur["nom"].ToString()));
                 }
             }
             catch (MySqlException ex)
@@ -74,9 +74,9 @@ namespace Atlantik.Formulaires
             }
         }
 
-        private void lbSecteurs_SelectedIndexChanged(object sender, EventArgs e)
+        private void lblSecteurs_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Secteur secteur = ((Secteur)lbSecteurs.SelectedItem);
+            Secteur secteur = ((Secteur)lblSecteurs.SelectedItem);
             cbxLiaisons.Items.Clear();
             cbxLiaisons.Text = String.Empty;
 

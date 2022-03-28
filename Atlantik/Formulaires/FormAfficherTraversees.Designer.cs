@@ -31,7 +31,7 @@ namespace Atlantik.Formulaires
         {
             this.cbxLiaisons = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.lbSecteurs = new System.Windows.Forms.ListBox();
+            this.lblSecteurs = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpDateTrav = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -59,14 +59,14 @@ namespace Atlantik.Formulaires
             this.label2.TabIndex = 7;
             this.label2.Text = "Laisons :";
             // 
-            // lbSecteurs
+            // lblSecteurs
             // 
-            this.lbSecteurs.FormattingEnabled = true;
-            this.lbSecteurs.Location = new System.Drawing.Point(12, 27);
-            this.lbSecteurs.Name = "lbSecteurs";
-            this.lbSecteurs.Size = new System.Drawing.Size(175, 238);
-            this.lbSecteurs.TabIndex = 6;
-            this.lbSecteurs.SelectedIndexChanged += new System.EventHandler(this.lbSecteurs_SelectedIndexChanged);
+            this.lblSecteurs.FormattingEnabled = true;
+            this.lblSecteurs.Location = new System.Drawing.Point(12, 27);
+            this.lblSecteurs.Name = "lblSecteurs";
+            this.lblSecteurs.Size = new System.Drawing.Size(175, 238);
+            this.lblSecteurs.TabIndex = 6;
+            this.lblSecteurs.SelectedIndexChanged += new System.EventHandler(this.lblSecteurs_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -150,7 +150,7 @@ namespace Atlantik.Formulaires
             this.Controls.Add(this.dtpDateTrav);
             this.Controls.Add(this.cbxLiaisons);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.lbSecteurs);
+            this.Controls.Add(this.lblSecteurs);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormAfficherTraversees";
@@ -166,7 +166,7 @@ namespace Atlantik.Formulaires
 
         private System.Windows.Forms.ComboBox cbxLiaisons;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListBox lbSecteurs;
+        private System.Windows.Forms.ListBox lblSecteurs;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtpDateTrav;
         private System.Windows.Forms.Label label3;

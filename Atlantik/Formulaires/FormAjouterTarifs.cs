@@ -32,7 +32,7 @@ namespace Atlantik.Formulaires
 
                 while (dataSecteur.Read())
                 {
-                    lbSecteurs.Items.Add(new Secteur(int.Parse(dataSecteur["nosecteur"].ToString()), dataSecteur["nom"].ToString()));
+                    lblSecteurs.Items.Add(new Secteur(int.Parse(dataSecteur["nosecteur"].ToString()), dataSecteur["nom"].ToString()));
                 }
             }
             catch (MySqlException ex)
@@ -111,9 +111,9 @@ namespace Atlantik.Formulaires
             }
         }
 
-        private void lbSecteurs_SelectedIndexChanged(object sender, EventArgs e)
+        private void lblSecteurs_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Secteur secteur = ((Secteur)lbSecteurs.SelectedItem);
+            Secteur secteur = ((Secteur)lblSecteurs.SelectedItem);
             cbxLiaison.Items.Clear();
             cbxLiaison.Text = String.Empty;
 
@@ -148,7 +148,7 @@ namespace Atlantik.Formulaires
 
         private void btnValider_Click(object sender, EventArgs e)
         {
-            if (lbSecteurs.SelectedItem == null || cbxLiaison.SelectedItem == null || cbxPeriodes.SelectedItem == null)
+            if (lblSecteurs.SelectedItem == null || cbxLiaison.SelectedItem == null || cbxPeriodes.SelectedItem == null)
             {
                 MessageBox.Show("Certains champs sont manquants", "Atlantik Manager Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;

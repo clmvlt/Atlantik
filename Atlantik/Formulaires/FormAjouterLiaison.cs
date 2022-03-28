@@ -32,7 +32,7 @@ namespace Atlantik.Formulaires
                 
                 while (dataSecteur.Read())
                 {
-                    lbSecteurs.Items.Add(new Secteur(int.Parse(dataSecteur["nosecteur"].ToString()), dataSecteur["nom"].ToString()));
+                    lblSecteurs.Items.Add(new Secteur(int.Parse(dataSecteur["nosecteur"].ToString()), dataSecteur["nom"].ToString()));
                 }
             }
             catch (MySqlException ex)
@@ -76,7 +76,7 @@ namespace Atlantik.Formulaires
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            if (lbSecteurs.SelectedItem == null || cbxDeparts.SelectedItem == null || cbxArrivees.SelectedItem == null || tbxDist.Text == String.Empty)
+            if (lblSecteurs.SelectedItem == null || cbxDeparts.SelectedItem == null || cbxArrivees.SelectedItem == null || tbxDist.Text == String.Empty)
             {
                 MessageBox.Show("Certains champs sont manquants", "Atlantik Manager Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -93,7 +93,7 @@ namespace Atlantik.Formulaires
                 MessageBox.Show("L'ajout a été annulé!", "Atlantik Manager Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            Secteur secteur = ((Secteur)lbSecteurs.SelectedItem);
+            Secteur secteur = ((Secteur)lblSecteurs.SelectedItem);
 
             MySqlConnection maCnx;
             maCnx = new MySqlConnection("Server=127.0.0.1;Port=3306;" + "User Id=root;Password=;Database=atlantik-cv;");

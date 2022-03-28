@@ -29,7 +29,7 @@ namespace Atlantik.Formulaires
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbSecteurs = new System.Windows.Forms.ListBox();
+            this.lblSecteurs = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,13 +40,13 @@ namespace Atlantik.Formulaires
             this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // lbSecteurs
+            // lblSecteurs
             // 
-            this.lbSecteurs.FormattingEnabled = true;
-            this.lbSecteurs.Location = new System.Drawing.Point(12, 38);
-            this.lbSecteurs.Name = "lbSecteurs";
-            this.lbSecteurs.Size = new System.Drawing.Size(188, 251);
-            this.lbSecteurs.TabIndex = 0;
+            this.lblSecteurs.FormattingEnabled = true;
+            this.lblSecteurs.Location = new System.Drawing.Point(12, 38);
+            this.lblSecteurs.Name = "lblSecteurs";
+            this.lblSecteurs.Size = new System.Drawing.Size(188, 251);
+            this.lblSecteurs.TabIndex = 0;
             // 
             // label1
             // 
@@ -130,7 +130,7 @@ namespace Atlantik.Formulaires
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lbSecteurs);
+            this.Controls.Add(this.lblSecteurs);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "formAjouterLiaison";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -143,7 +143,7 @@ namespace Atlantik.Formulaires
 
         #endregion
 
-        private System.Windows.Forms.ListBox lbSecteurs;
+        private System.Windows.Forms.ListBox lblSecteurs;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
