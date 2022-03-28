@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Atlantik.Class;
 
 namespace Atlantik.Formulaires
 {
@@ -70,6 +71,12 @@ namespace Atlantik.Formulaires
                 if (tbx.Text == String.Empty)
                 {
                     MessageBox.Show("Certains champs sont manquants", "Atlantik Manager Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (tbx.Text.HasLetters())
+                {
+                    MessageBox.Show("Le champ " + tbx.Tag.ToString().Replace(";", "") + " ne doit pas contenir de lettres.", "Atlantik Manager Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
             }

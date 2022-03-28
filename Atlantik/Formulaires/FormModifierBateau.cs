@@ -109,6 +109,12 @@ namespace Atlantik.Formulaires
                     MessageBox.Show("Certains champs sont manquants", "Atlantik Manager Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+
+                if (tbx.Text.HasLetters())
+                {
+                    MessageBox.Show("Le champ " + tbx.Tag.ToString().Replace(";", "") + " ne doit pas contenir de lettres.", "Atlantik Manager Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
             }
             
             DialogResult drConfirmation = MessageBox.Show("Voulez-vous valider la modification ?", "Atlantik Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);

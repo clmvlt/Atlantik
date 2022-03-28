@@ -81,6 +81,11 @@ namespace Atlantik.Formulaires
                 MessageBox.Show("Certains champs sont manquants", "Atlantik Manager Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (tbxDist.Text.HasLetters())
+            {
+                MessageBox.Show("La distance ne doit pas contenir de lettres.", "Atlantik Manager Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             DialogResult drConfirmation = MessageBox.Show("Voulez-vous valider l'ajout ?", "Atlantik Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (drConfirmation != DialogResult.Yes)
@@ -88,7 +93,6 @@ namespace Atlantik.Formulaires
                 MessageBox.Show("L'ajout a été annulé!", "Atlantik Manager Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
             Secteur secteur = ((Secteur)lbSecteurs.SelectedItem);
 
             MySqlConnection maCnx;

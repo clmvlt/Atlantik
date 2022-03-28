@@ -160,6 +160,11 @@ namespace Atlantik.Formulaires
                     MessageBox.Show("Certains champs sont manquants", "Atlantik Manager Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+                if (textbox.Text.HasLetters())
+                {
+                    MessageBox.Show("Le champ " + textbox.Tag.ToString().Replace(";", "") + " ne doit pas contenir de lettres.", "Atlantik Manager Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
             }
             DialogResult drConfirmation = MessageBox.Show("Voulez-vous valider l'ajout ?", "Atlantik Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (drConfirmation != DialogResult.Yes)

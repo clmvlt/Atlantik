@@ -43,9 +43,9 @@ namespace Atlantik
             this.tsddAfficher = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsmiAfficherTraversees = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiReservations = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tsddOption = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsmiParametres = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tsAccueil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -165,15 +165,6 @@ namespace Atlantik
             this.tsmiReservations.Text = "Réservations";
             this.tsmiReservations.Click += new System.EventHandler(this.tsmiReservations_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Atlantik.Properties.Resources.image;
-            this.pictureBox1.Location = new System.Drawing.Point(80, 69);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(499, 302);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // tsddOption
             // 
             this.tsddOption.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -188,9 +179,18 @@ namespace Atlantik
             // tsmiParametres
             // 
             this.tsmiParametres.Name = "tsmiParametres";
-            this.tsmiParametres.Size = new System.Drawing.Size(180, 22);
+            this.tsmiParametres.Size = new System.Drawing.Size(133, 22);
             this.tsmiParametres.Text = "Paramtères";
             this.tsmiParametres.Click += new System.EventHandler(this.tsmiParametres_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Atlantik.Properties.Resources.image;
+            this.pictureBox1.Location = new System.Drawing.Point(80, 69);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(499, 302);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // FormAccueil
             // 

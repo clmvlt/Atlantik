@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Atlantik.Class;
 
 namespace Atlantik.Formulaires
 {
@@ -23,6 +24,12 @@ namespace Atlantik.Formulaires
             if (tbxId.Text == String.Empty || tbxRang.Text == String.Empty || tbxId.Text == String.Empty || rtbxCle.Text == String.Empty || tbxMelSite.Text == String.Empty)
             {
                 MessageBox.Show("Certains champs sont manquants", "Atlantik Manager Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (tbxId.Text.HasLetters())
+            {
+                MessageBox.Show("Le champ ID ne doit pas contenir de lettres.", "Atlantik Manager Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -69,9 +76,17 @@ namespace Atlantik.Formulaires
                 maCnx.Open();
                 var maCde = new MySqlCommand("select * from parametres", maCnx);
 
-                MySqlDataReader dateParametres = maCde.ExecuteReader();
+                MySqlDataReader dataParametres = maCde.ExecuteReader();
 
-                
+                while (dataParametres.Read())
+                {
+                    tbxId.Text = dataParametres["identifiant_pb"].ToString();
+                    tbxMelSite.Text = dataParametres["melsite"].ToString();
+                    tbxRang.Text = dataParametres["rang_pb"].ToString();
+                    tbxSite.Text = dataParametres["site_pb"].ToString();
+                    rtbxCle.Text = dataParametres["clehmac_pb"].ToString();
+                    cbEnProduction.Checked = Boolean.Parse(dataParametres["enproduction"].ToString());
+                }
             }
             catch (MySqlException ex)
             {
