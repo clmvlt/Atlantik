@@ -86,7 +86,6 @@ namespace Atlantik.Formulaires
                     tbxSite.Text = dataParametres["site_pb"].ToString();
                     rtbxCle.Text = dataParametres["clehmac_pb"].ToString();
                     cbEnProduction.Checked = Boolean.Parse(dataParametres["enproduction"].ToString());
-                    MessageBox.Show("qzdTest");
                 }
             }
             catch (MySqlException ex)
