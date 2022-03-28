@@ -1,0 +1,74 @@
+Création des colonnes
+
+SELECT t.notraversee, bat.nom, t.dateheuredepart, a.capacitemax as 'A', b.capacitemax as 'B', b.capacitemax as 'C'
+FROM traversee t, bateau bat, contenir a, contenir b, contenir c, liaison l, categorie cat
+WHERE t.nobateau = bat.nobateau
+and c.nobateau = bat.nobateau
+and a.nobateau = b.nobateau
+and b.nobateau = c.nobateau
+and l.noliaison = t.noliaison
+and c.lettrecategorie = cat.lettrecategorie
+and a.lettrecategorie = 'A'
+and b.lettrecategorie = 'B'
+and c.lettrecategorie = 'C'
+and l.nosecteur = 3
+and t.dateheuredepart like '%'
+
+
+
+Places réservées
+
+select e.lettrecategorie, sum(e.quantite) as 'res'
+from traversee t, reservation r, enregistrer e 
+where t.notraversee = r.notraversee
+and e.noreservation = r.noreservation
+and t.notraversee = 1
+group by e.lettrecategorie
+
+Places maximum
+
+SELECT t.notraversee, bat.nom, t.dateheuredepart, cat.lettrecategorie, cat.libelle, c.capacitemax 
+FROM traversee t, bateau bat, contenir c, liaison l, categorie cat 
+WHERE t.nobateau = bat.nobateau
+and c.nobateau = bat.nobateau 
+and l.noliaison = t.noliaison 
+and c.lettrecategorie = cat.lettrecategorie 
+and t.dateheuredepart like @DATE 
+and l.nosecteur = @NOSECTEUR 
+order by t.notraversee, cat.lettrecategorie
+
+libres 
+
+select t.notraversee, bat.nom, t.dateheuredepart, cat.lettrecategorie, cat.libelle, c.capacitemax - sum(e.quantite) as "places"
+from traversee t, reservation r, enregistrer e, bateau bat, liaison l, categorie cat, contenir c
+where t.notraversee = r.notraversee
+and cat.lettrecategorie = e.lettrecategorie
+and bat.nobateau = t.nobateau
+and l.noliaison = t.noliaison
+and c.nobateau = bat.nobateau 
+and c.lettrecategorie = cat.lettrecategorie 
+and e.noreservation = r.noreservation
+and t.notraversee = 2
+group by e.lettrecategorie
+
+union
+
+SELECT t.notraversee, bat.nom, t.dateheuredepart, cat.lettrecategorie, cat.libelle, c.capacitemax 
+FROM traversee t, bateau bat, contenir c, categorie cat 
+WHERE t.nobateau = bat.nobateau
+and c.nobateau = bat.nobateau 
+and c.lettrecategorie = cat.lettrecategorie 
+and t.notraversee = 2
+and cat.lettrecategorie not in (
+	select cat.lettrecategorie
+    from traversee t, reservation r, enregistrer e, bateau bat, liaison l, categorie cat, contenir c
+    where t.notraversee = r.notraversee
+    and cat.lettrecategorie = e.lettrecategorie
+    and bat.nobateau = t.nobateau
+    and l.noliaison = t.noliaison
+    and c.nobateau = bat.nobateau 
+    and c.lettrecategorie = cat.lettrecategorie 
+    and e.noreservation = r.noreservation
+    and t.notraversee = 2
+    group by e.lettrecategorie
+)
