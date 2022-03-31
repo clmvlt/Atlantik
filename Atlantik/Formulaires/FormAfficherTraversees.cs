@@ -33,7 +33,7 @@ namespace Atlantik.Formulaires
 
                 while (dataSecteur.Read())
                 {
-                    lblSecteurs.Items.Add(new Secteur(int.Parse(dataSecteur["nosecteur"].ToString()), dataSecteur["nom"].ToString()));
+                    lbxSecteurs.Items.Add(new Secteur(int.Parse(dataSecteur["nosecteur"].ToString()), dataSecteur["nom"].ToString()));
                 }
             }
             catch (MySqlException ex)
@@ -57,10 +57,12 @@ namespace Atlantik.Formulaires
 
                 while (dataCat.Read())
                 {
-                    ColumnHeader column = new ColumnHeader();
-                    column.Tag = dataCat["lettrecategorie"].ToString();
-                    column.Text = "Places " + dataCat["libelle"].ToString();
-                    column.Width = 140;
+                    ColumnHeader column = new ColumnHeader
+                    {
+                        Tag = dataCat["lettrecategorie"].ToString(),
+                        Text = "Places " + dataCat["libelle"].ToString(),
+                        Width = 140
+                    };
                     lvTraversees.Columns.Add(column);
                 }
             }
@@ -77,9 +79,9 @@ namespace Atlantik.Formulaires
             }
         }
 
-        private void lblSecteurs_SelectedIndexChanged(object sender, EventArgs e)
+        private void lbxSecteurs_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Secteur secteur = ((Secteur)lblSecteurs.SelectedItem);
+            Secteur secteur = ((Secteur)lbxSecteurs.SelectedItem);
             cbxLiaisons.Items.Clear();
             cbxLiaisons.Text = String.Empty;
 
@@ -121,7 +123,6 @@ namespace Atlantik.Formulaires
                 MessageBox.Show("Certains champs sont manquants", "Atlantik Manager Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            List<int> listNoVtraversees = new List<int>();
 
             MySqlConnection maCnx;
             maCnx = new MySqlConnection("Server=127.0.0.1;Port=3306;" + "User Id=root;Password=;Database=atlantik-cv;");
@@ -186,8 +187,10 @@ namespace Atlantik.Formulaires
                             }
                             else
                             {
-                                ListViewItem item = new ListViewItem(items);
-                                item.Tag = dataTrav["lettrecategorie"];
+                                ListViewItem item = new ListViewItem(items)
+                                {
+                                    Tag = dataTrav["lettrecategorie"]
+                                };
                                 lvTraversees.Items.Add(item).Tag = dataTrav["notraversee"];
                             }
                         }

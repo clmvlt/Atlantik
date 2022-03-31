@@ -32,7 +32,7 @@ namespace Atlantik.Formulaires
 
                 while (dataSecteur.Read())
                 {
-                    lblSecteurs.Items.Add(new Secteur(int.Parse(dataSecteur["nosecteur"].ToString()), dataSecteur["nom"].ToString()));
+                    lbxSecteurs.Items.Add(new Secteur(int.Parse(dataSecteur["nosecteur"].ToString()), dataSecteur["nom"].ToString()));
                 }
             }
             catch (MySqlException ex)
@@ -59,14 +59,18 @@ namespace Atlantik.Formulaires
                 while (dataType.Read())
                 {
                     y += 40;
-                    Label label = new Label();
-                    label.Text = dataType["lettrecategorie"].ToString() + dataType["notype"].ToString() + $" ({dataType["libelle"]}) :";
-                    label.Location = new Point(30, y);
-                    label.Size = new Size(200, 20);
+                    Label label = new Label
+                    {
+                        Text = dataType["lettrecategorie"].ToString() + dataType["notype"].ToString() + $" ({dataType["libelle"]}) :",
+                        Location = new Point(30, y),
+                        Size = new Size(200, 20)
+                    };
 
-                    TextBox textbox = new TextBox();
-                    textbox.Tag = dataType["lettrecategorie"].ToString() + ';' + dataType["notype"].ToString();
-                    textbox.Location = new Point(200, y - 3);
+                    TextBox textbox = new TextBox
+                    {
+                        Tag = dataType["lettrecategorie"].ToString() + ';' + dataType["notype"].ToString(),
+                        Location = new Point(200, y - 3)
+                    };
 
                     gbxCatType.Controls.Add(textbox);
                     gbxCatType.Controls.Add(label);
@@ -111,9 +115,9 @@ namespace Atlantik.Formulaires
             }
         }
 
-        private void lblSecteurs_SelectedIndexChanged(object sender, EventArgs e)
+        private void lbxSecteurs_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Secteur secteur = ((Secteur)lblSecteurs.SelectedItem);
+            Secteur secteur = ((Secteur)lbxSecteurs.SelectedItem);
             cbxLiaison.Items.Clear();
             cbxLiaison.Text = String.Empty;
 
@@ -148,7 +152,7 @@ namespace Atlantik.Formulaires
 
         private void btnValider_Click(object sender, EventArgs e)
         {
-            if (lblSecteurs.SelectedItem == null || cbxLiaison.SelectedItem == null || cbxPeriodes.SelectedItem == null)
+            if (lbxSecteurs.SelectedItem == null || cbxLiaison.SelectedItem == null || cbxPeriodes.SelectedItem == null)
             {
                 MessageBox.Show("Certains champs sont manquants", "Atlantik Manager Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -160,9 +164,9 @@ namespace Atlantik.Formulaires
                     MessageBox.Show("Certains champs sont manquants", "Atlantik Manager Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                if (textbox.Text.HasLetters())
+                if (!textbox.Text.IsDouble())
                 {
-                    MessageBox.Show("Le champ " + textbox.Tag.ToString().Replace(";", "") + " ne doit pas contenir de lettres.", "Atlantik Manager Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Le champ " + textbox.Tag.ToString().Replace(";", "") + " doit comporter un double.", "Atlantik Manager Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
             }

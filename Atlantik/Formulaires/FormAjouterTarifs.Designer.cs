@@ -30,7 +30,7 @@ namespace Atlantik.Formulaires
         private void InitializeComponent()
         {
             this.label4 = new System.Windows.Forms.Label();
-            this.lblSecteurs = new System.Windows.Forms.ListBox();
+            this.lbxSecteurs = new System.Windows.Forms.ListBox();
             this.gbxCatType = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbxLiaison = new System.Windows.Forms.ComboBox();
@@ -48,14 +48,14 @@ namespace Atlantik.Formulaires
             this.label4.TabIndex = 10;
             this.label4.Text = "Secteurs :";
             // 
-            // lblSecteurs
+            // lbxSecteurs
             // 
-            this.lblSecteurs.FormattingEnabled = true;
-            this.lblSecteurs.Location = new System.Drawing.Point(12, 42);
-            this.lblSecteurs.Name = "lblSecteurs";
-            this.lblSecteurs.Size = new System.Drawing.Size(188, 251);
-            this.lblSecteurs.TabIndex = 9;
-            this.lblSecteurs.SelectedIndexChanged += new System.EventHandler(this.lblSecteurs_SelectedIndexChanged);
+            this.lbxSecteurs.FormattingEnabled = true;
+            this.lbxSecteurs.Location = new System.Drawing.Point(12, 42);
+            this.lbxSecteurs.Name = "lbxSecteurs";
+            this.lbxSecteurs.Size = new System.Drawing.Size(188, 251);
+            this.lbxSecteurs.TabIndex = 9;
+            this.lbxSecteurs.SelectedIndexChanged += new System.EventHandler(this.lbxSecteurs_SelectedIndexChanged);
             // 
             // gbxCatType
             // 
@@ -123,7 +123,7 @@ namespace Atlantik.Formulaires
             this.Controls.Add(this.label2);
             this.Controls.Add(this.gbxCatType);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.lblSecteurs);
+            this.Controls.Add(this.lbxSecteurs);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormAjouterTarifs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -137,7 +137,7 @@ namespace Atlantik.Formulaires
         #endregion
 
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListBox lblSecteurs;
+        private System.Windows.Forms.ListBox lbxSecteurs;
         private System.Windows.Forms.GroupBox gbxCatType;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbxLiaison;

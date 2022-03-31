@@ -27,7 +27,7 @@ namespace Atlantik.Formulaires
                 return;
             }
 
-            if (tbxId.Text.HasLetters())
+            if (!tbxId.Text.IsOnlyDigit())
             {
                 MessageBox.Show("Le champ ID ne doit pas contenir de lettres.", "Atlantik Manager Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;

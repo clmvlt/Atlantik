@@ -110,7 +110,7 @@ namespace Atlantik.Formulaires
                     return;
                 }
 
-                if (tbx.Text.HasLetters())
+                if (!tbx.Text.IsOnlyDigit())
                 {
                     MessageBox.Show("Le champ " + tbx.Tag.ToString().Replace(";", "") + " ne doit pas contenir de lettres.", "Atlantik Manager Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
